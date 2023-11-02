@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'https://613c7348270b96001798b115.mockapi.io/angular_crud';
+  private apiUrl = 'https://613c7348270b96001798b115.mockapi.io/task_crud';
 
   constructor(private http: HttpClient) {}
 
