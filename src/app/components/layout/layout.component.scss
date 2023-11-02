@@ -1,0 +1,114 @@
+@import "../../../assets/scss/variable.scss";
+.asidenav {
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--sidebar-bg);
+    padding: 12px;
+}
+
+.header-background {
+    background-color: var(--whitecolor);
+    border-bottom: 1px solid var(--whitecolor);
+    box-shadow: 0 1px 0 var(--boxshadow-light);
+    padding: 0;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 69px;
+}
+
+.outer-content {
+    padding: 4% 2% 3% 2%;
+    min-height: calc(100vh - 69px);
+    background-color: var(--layout-bg);
+    height: 100%;
+}
+
+.inner-content {
+    min-height: 0px;
+}
+
+.main-footer {
+    padding: 12px 50px;
+}
+
+@media screen and (max-width: 991px) {
+    .asidenav {
+        padding: 0px !important;
+    }
+    .header-background {
+        padding: 0px 20px;
+    }
+    .ant-layout-sider {
+        flex: 0 0 0px !important;
+        max-width: 0px !important;
+        min-width: 0px !important;
+        width: 0px !important;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1440px) {
+    .ant-layout-sider {
+        flex: 0 0 0px !important;
+        max-width: 0px !important;
+        min-width: 0px !important;
+        width: 0px !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 648px) {
+    .outer-content {
+        padding: 12% 3% 2% 3% !important;
+        min-height: calc(107vh - 80px);
+    }
+    .ant-layout-sider {
+        flex: 0 0 0px !important;
+        max-width: 0px !important;
+        min-width: 0px !important;
+        width: 0px !important;
+    }
+}
+
+@media (min-width: 649px) and (max-width: 991px) {
+    .outer-content {
+        padding: 7% 3% 3% 3%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1024px) {
+    .outer-content {
+        padding: 9% 2% 2% 2% !important;
+        min-height: calc(107vh - 80px);
+    }
+    .ant-layout-sider {
+        flex: 0 0 0px !important;
+        max-width: 0px !important;
+        min-width: 0px !important;
+        width: 0px !important;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1440px) {
+    .outer-content {
+        padding: 6% 2% 2% 21% !important;
+    }
+    .ant-layout-sider {
+        flex: 0 0 0px !important;
+        max-width: 0px !important;
+        min-width: 0px !important;
+        width: 0px !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .outer-content {
+        padding: 7% 3% 3% 3%;
+    }
+}
+
+@media (min-width: 1441px) and (max-width: 1680px) {
+    .outer-content {
+        padding: 6% 2% 2% 2%;
+    }
+}

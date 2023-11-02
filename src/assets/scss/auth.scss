@@ -1,0 +1,120 @@
+.auth {
+    background-color: var(--authsectionbg);
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    &__card {
+        width: 500px;
+        // height: 100%;
+        background: var(--whitecolor);
+        border-radius: 8px;
+        margin: 9rem auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    &__formblock {
+        padding: 40px;
+        margin: 10px auto;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    &__logo {
+        position: relative;
+        top: 0;
+        margin-bottom: 0px;
+        display: inline-block;
+    }
+    &__maincontent {
+        margin-top: 20px;
+        h3 {
+            color: var(--darkcolor);
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+    &__innercontent {
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        input {
+            margin-bottom: 0px;
+            min-height: 40px;
+            border-radius: 6px;
+            &:hover {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.login-form {
+    .label {
+        text-align: left;
+    }
+    .ant-input-affix-wrapper {
+        border-radius: 4px;
+        min-height: 40px;
+    }
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.login-form-forgot {
+    text-align: right;
+    display: block;
+    width: 100%;
+    color: var(--darkcolor);
+    font-weight: 500;
+}
+
+.authbutton {
+    width: 100%;
+    height: 47px;
+    text-align: center;
+    background-color: var(--primary-color);
+    background-image: var(--linear-bg);
+    box-shadow: 0 4px 15px 0 rgba(76, 53, 117, 0.75);
+    border: none;
+    color: var(--whitecolor);
+    padding: 6px;
+    border-radius: 6px;
+    margin: 10px auto;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    background-size: 300% 100%;
+    transition: all .4s ease-in-out;
+    &:hover {
+        background-position: 100% 0;
+        transition: all .4s ease-in-out;
+    }
+}
+
+.authbutton:disabled {
+    background-color: var(--primary-color);
+    opacity: 0.8;
+    &:hover {
+        color: var(--whitecolor);
+        opacity: 0.6;
+    }
+}
+
+.login-form-margin {
+    margin-bottom: 15px;
+}
+
+.login-form-forgot a {
+    border-bottom: 1px solid var(--text-color);
+    color: var(--primary-color);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+}

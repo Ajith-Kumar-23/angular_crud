@@ -1,0 +1,182 @@
+@import '../../../assets/scss/mixin.scss';
+.header {
+    position: relative;
+    padding: 4px 0;
+    &__profile {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__mainlogo img {
+        max-width: 100%;
+        display: block;
+        min-width: 100%;
+        object-fit: cover;
+        margin: 4px auto;
+    }
+    &__content {
+        display: flex;
+        line-height: 14px;
+        vertical-align: middle;
+        margin-top: 13px;
+    }
+    &__hamburger {
+        display: none;
+    }
+    &__logo {
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        padding: 0% 2%;
+        padding-left: 0%;
+    }
+    &__section {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 2%;
+    }
+    &__title {
+        color: var(--whitecolor);
+    }
+    &__nav-btn {
+        background-color: var(--darkcolor);
+        border: none;
+        outline: none;
+        font-weight: 800px;
+        font-size: 22px;
+        padding: 0px;
+        margin-top: 13px;
+        color: var(--whitecolor);
+        font-family: 'Manrope', sans-serif;
+    }
+    &__popup-txt {
+        text-decoration: none;
+        color: var(--darkcolor);
+        font-weight: 600;
+        font-family: 'Manrope', sans-serif;
+        padding: 6px 16px;
+    }
+    &__popup-txt:hover {
+        background: var(--whitecolor);
+    }
+    &__icons {
+        margin-right: 25px;
+        margin-top: 15px;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        padding: 1px;
+        background-color: transparent;
+        border-radius: 24px;
+        cursor: pointer;
+        &:hover {
+            background-color: var(--primary-light);
+        }
+        img {
+            display: block;
+            margin: 4px auto;
+        }
+    }
+    .treta {
+        color: var(--whitecolor);
+        object-fit: contain;
+    }
+    &__notifications {
+        display: flex;
+        align-items: center;
+    }
+    &__notifications-header {
+        line-height: 18px;
+        display: inline-block;
+        margin-top: 10px;
+        margin-right: 7px;
+        h5 {
+            color: var(--darkcolor);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+        p {
+            color: var(--text-color);
+            font-size: 12px;
+            margin-bottom: 0;
+            text-transform: lowercase;
+        }
+    }
+}
+
+.bellnotification {
+    @include iconbg;
+    width: 32px !important;
+    height: 32px !important;
+    margin-top: 17px;
+    margin-right: 7px;
+    padding: 5px;
+    img {
+        display: block;
+        margin: auto;
+    }
+}
+
+.small-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 38px;
+    border: 1px solid var(--card-border);
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    img {
+        margin: 0 auto;
+        display: block;
+        padding: 1px;
+    }
+}
+
+.dropdown-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.adminname {
+    flex-direction: column;
+    h5 {
+        margin-bottom: 3px;
+        font-weight: 500;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+
+
+/* On screens that are 992px or less, set the background color to blue */
+
+@media screen and (max-width: 991px) {
+    .header {
+        &__hamburger {
+            display: block;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 575px) {
+    .header {
+        .treta {
+            object-fit: contain;
+            width: 70%;
+        }
+        &__icons {
+            display: none;
+        }
+        &__notifications-header {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .treta {
+        margin-left: 20px;
+    }
+}

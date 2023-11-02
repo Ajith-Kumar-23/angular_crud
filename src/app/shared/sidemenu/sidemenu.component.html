@@ -1,0 +1,50 @@
+<div class="side-menu-layout " *ngIf="!isShow">
+    <div class="asidenav" *ngIf="!isShow">
+        <div class="sidenav">
+            <div class="asidenav__logo">
+                <h2>Task CRUD</h2>
+            </div>
+            <div class="asidenav__menulist">
+                <ul nz-menu nzMode="inline">
+                    <li nz-menu-item routerLink="/dashboard" routerLinkActive="ant-menu-item-selected">
+                        <img src="../../../assets/img/icons/home.svg" alt="angular_crud" width="21">
+                        <span>Home</span>
+                    </li>
+                    <li nz-menu-item (click)="logOut()">
+                        <img src="../../../assets/img/icons/log-out.svg" alt="angular_crud" width="21">
+                        <span>Logout</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="responsive">
+    <button *ngIf="isShow" nz-button (click)="open()" id="toggle-icon">&#9776;
+    </button>
+</div>
+
+<nz-drawer [nzVisible]="visible" (nzOnClose)="close()" nzPlacement="left">
+    <ng-container *nzDrawerContent>
+        <div class="asidenav">
+            <div class="asidenav__menulist">
+                <ul nz-menu nzMode="inline">
+                    <li nz-menu-item routerLink="/dashboard" routerLinkActive="ant-menu-item-selected" (click)="close()">
+                        <img src="../../../assets/img/icons/dashboard.svg" alt="" width="21">
+                        <span>Dashboard</span>
+                    </li>
+
+                    <li nz-menu-item (click)="logOut()">
+                        <img src="../../../assets/img/icons/log-out.svg" alt="" width="21">
+                        <span>Logout</span>
+                    </li>
+                    <li nz-menu-item class="v-hideen">
+                        <img src="../../../assets/img/icons/log-out.svg" alt="" width="21">
+                        <span>Logout</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-container>
+</nz-drawer>

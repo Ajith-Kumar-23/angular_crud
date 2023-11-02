@@ -1,0 +1,107 @@
+@mixin card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--whitecolor);
+    border: 1px solid var(--card-border);
+    background-clip: border-box;
+    // box-shadow: 0 5px 10px -2px #e7e5de;
+    border-radius: 12px;
+    padding: 20px;
+    // box-shadow: 0 2px 4px rgb(0 0 0 / 16%), 0 2px 4px rgb(0 0 0 / 23%);
+}
+
+@mixin card-title {
+    color: var(--darkcolor);
+    margin-bottom: 2px;
+}
+
+@mixin card-flex {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    .pur {
+        position: absolute;
+        top: 40px;
+        right: 30px;
+    }
+}
+
+@mixin card-header {
+    text-align: left;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+@mixin header-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+@mixin iconbg {
+    width: 40px;
+    height: 40px;
+    background-color: var(--iconbg);
+    border: 1px solid var(--iconbg);
+    border-radius: 50px;
+    text-align: center;
+    padding: 6px;
+    cursor: pointer;
+}
+
+@mixin card-body {
+    padding: 10px;
+}
+
+@mixin btn {
+    display: inline-block;
+    width: auto;
+    background-color: transparent;
+    min-height: 40px;
+    border-radius: 06px;
+    line-height: auto;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+@mixin section-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+    // border-bottom: 2px solid var(--border-light);
+    // box-shadow: 0 1px 0 var(--boxshadow-light);
+    padding: 12px;
+    padding-left: 0;
+    h3 {
+        line-height: 18px;
+        margin-top: 13px;
+        font-weight: 600;
+        font-size: 24px;
+    }
+}
+
+@mixin title {
+    line-height: 18px;
+    margin-top: 13px;
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Manrope', sans-serif;
+}

@@ -1,0 +1,13 @@
+<header class="header">
+    <div class="header__section">
+        <div class="header__notifications">
+            <button class="header__nav-btn" nz-button nz-dropdown nzType="primary" [nzDropdownMenu]="menu" nz-tooltip [nzTooltipTitle]="loginEmail" nzSize="large" nzShape="circle">{{ userData ? userData?.slice(0,1) : '' }}</button>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+                <ul nz-menu>
+                    <li class="header__popup-txt" nz-menu-item (click)="logOut()"> SignOut</li>
+                </ul>
+            </nz-dropdown-menu>
+        </div>
+
+    </div>
+</header>

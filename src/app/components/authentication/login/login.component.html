@@ -1,0 +1,41 @@
+<div class="auth">
+    <div class="auth__card">
+        <div class="auth__formblock">
+            <div class="auth__maincontent">
+                <h3>Login</h3>
+                <div class="auth__innercontent">
+                    <form #loginForm="ngForm" class="login-form" (ngSubmit)="login(loginForm.value)">
+                        <nz-form-item>
+                            <nz-form-control [nzErrorTip]="emailErrorTpl">
+                                <nz-form-label nsSpan="24" class="d-block label" nzFor="email">E-mail</nz-form-label>
+                                <nz-input-group>
+                                    <input type="text" nz-input name="userName" [ngModel] placeholder="Email" required />
+                                </nz-input-group>
+                            </nz-form-control>
+                            <ng-template #emailErrorTpl let-control>
+                                <ng-container *ngIf="!control.valid && control.touched">
+                                    <div *ngIf="control.hasError('required')">Please enter email</div>
+                                    <div *ngIf="control.hasError('email')">Please enter valid email</div>
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your Password!">
+                                <nz-form-label nsSpan="24" class="d-block label" nzFor="password">Password</nz-form-label>
+                                <nz-input-group [nzSuffix]="suffixIconSearch">
+                                    <input type="password" nz-input name="password" ngModel placeholder="Password" required />
+                                </nz-input-group>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <ng-template #suffixIconSearch>
+                            <span nz-icon [nzType]="i" nzTheme="outline" (click)="iChange()"></span>
+                        </ng-template>
+                        <div nz-row>
+                            <button nz-button class="authbutton" [disabled]="!loginForm.form.valid" [nzLoading]="isLoginLoad" [nzType]="'primary'" type="submit">Log in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

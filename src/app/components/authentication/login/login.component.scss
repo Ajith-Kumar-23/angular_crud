@@ -1,0 +1,113 @@
+@import "../../../../assets/scss/variable.scss";
+@import "../../../../assets/scss/auth.scss";
+@import "../../../../assets/scss/mixin.scss";
+::ng-deep .ant-modal-footer {
+    border: none;
+    padding: 0px 16px 24px 16px !important;
+    text-align: left;
+}
+
+.main-form {
+    padding: 0px 20px;
+    .form-elements {
+        display: flex;
+        // flex-direction: column;
+        span {
+            font-size: 16px;
+            padding-right: 12px;
+            font-weight: 500;
+        }
+         ::ng-deep .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+            height: 38px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .form-label {
+            float: left;
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-family: 'Manrope', sans-serif;
+            padding-top: 25px;
+        }
+        .form-label1 {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 400;
+            padding-top: 25px;
+        }
+        input {
+            padding: 7px 7px;
+            border-radius: 5px;
+        }
+        .mail {
+            padding: 7px 7px;
+            border-radius: 5px;
+        }
+    }
+}
+
+.modal-footer-upd {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .foot-cancel {
+        min-height: 40px;
+        border-radius: 50px;
+        background: transparent !important;
+        color: var(--darkcolor);
+        border: 1px solid var(--darkcolor) !important;
+        border: none;
+        min-width: 100px;
+        &:hover {
+            min-height: 40px;
+            border-radius: 50px;
+            background: transparent !important;
+            color: var(--cancel-hover);
+            border: 1px solid var(--cancel-hover) !important;
+            border: none;
+            min-width: 100px;
+        }
+    }
+    .foot-confirm {
+        @include btn;
+        background-color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        color: var(--whitecolor);
+        margin-right: 10px;
+        min-width: 100px;
+        &:disabled {
+            @include btn;
+            background-color: var(--submit-disable);
+            border: none;
+            color: var(--darkcolor);
+            margin-right: 10px;
+            min-width: 100px;
+        }
+    }
+}
+
+.auth {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url('../../../../assets/img/bg-crud.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    &__logo {
+        img {
+            max-width: 100%;
+            min-width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.login-form-forgot {
+    text-align: left;
+}

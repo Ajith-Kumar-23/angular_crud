@@ -1,0 +1,62 @@
+/*project Name:Crypto Admin Dashboard
+created:23-11-2021
+files:scss
+*/
+
+//variables
+// @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+:root {
+    --primary-color: #1652d4;
+    --primary-light: #FFEDED;
+    --secondary-color: #131313;
+    --sidebar-bg: #1d293e;
+    --dark-light: rgba(19, 19, 19, 0.5);
+    --disable-text: #fb9fa3;
+    --primary-active: #FF4E57;
+    --authsectionbg: #F2F5FF;
+    --whitecolor: #fff;
+    --logo-bg: #24324a;
+    --darkcolor: #1A1A1A;
+    --layout-bg: #f7f7f7;
+    --table-bg: #24324a;
+    --text-table: #888BA1;
+    --table-header: #fff;
+    --table-hover: rgba(123, 116, 198, 0.2);
+    --border-light: #E2E3E7;
+    --boxshadow-light: rgb(0, 0, 0, 9%);
+    --text-color: #6C6C6F;
+    --card-text: #6D737A;
+    --card-text-light: #A3A8AE;
+    --label-text: #1A1A1A;
+    --card-border: #ebebeb;
+    --model-bottom-bottom: #dee2e6;
+    --input-border: #E0E0E0;
+    --input-color: #757575;
+    --sucess: #31B676;
+    --sucess-transperant: #EEFFE8;
+    --decline-transperant: #FFE8E8;
+    --sucess-bg: #EEFFE8;
+    --gold-color: #D8A523;
+    --input-border-hover: var(--primary-color);
+    --iconbg: #dde2f4;
+    --linear-bg: linear-gradient(to right, #FF4E57, #FF646D, #FF5E67, #FF7780) !important;
+    --submit-disable: #a2a2a2;
+    --cancel: #dd3c63;
+    --cancel-bg: #FFE8E8;
+    --cancel-hover: #dd3c63;
+    --pending: #ffa755;
+    --primary-light: rgba(255, 90, 95, .2);
+    --notification-bell: #dd3c63;
+    --loader-bg: #f7f3ef;
+    --li-border: #F2F2F2;
+    --rent: #F37E2A;
+    --sale: #FF4E57;
+    --investment: #53B09D;
+    --text-color3: #A4A4A4;
+    --blue: #0D4CC0;
+    --verified: #3DC00F;
+    --reject: #dd3c63;
+    --pending: #E3A70B;
+}
+
+// box-shadow: 0 1px 0 var(--boxshadow-light);

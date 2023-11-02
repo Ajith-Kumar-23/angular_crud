@@ -1,0 +1,253 @@
+<section class="user" *ngIf="!activityLoader">
+    <div class="user__header">
+        <h3>User Details</h3>
+        <div class="user__search-group">
+            <div class="user__button">
+                <button class="user__create" nz-button (click)="showModel()"> <img src="../../../../assets/img/icons/plus-white.svg">&nbsp;Create</button>
+            </div>
+        </div>
+    </div>
+    <div class="user__maincontent">
+        <div nz-row>
+            <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+                <div class="card">
+                    <div class="card__body">
+                        <nz-table class="table-overflow" #basicTable [nzData]="usersArray" nzShowPagination="false">
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>User Name</th>
+                                    <th>Email</th>
+                                    <th>Age</th>
+                                    <th>Joining Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let data of usersArray; let i = index">
+                                    <td>{{limit*page+(i+1)-limit}}</td>
+                                    <td class="cursor pointer-text"><span class="user-name" nz-tooltip nzTooltipPlacement="top" nzTooltipTitle="View profile">{{data?.name ? data?.name :
+                                            '-'}}</span>
+                                    </td>
+                                    <td>
+                                        <div nz-tooltip nzTooltipTitle="{{copied}}" (mouseenter)="copied =data?.email?'Click to copy':''" [nzTooltipPlacement]="['topLeft', 'leftTop']">
+                                            <span (click)="disableTooltip()" ngxClipboard [cbContent]="data?.email" nz-tooltip nzTooltipTrigger="click" class="copy-text">
+                                                {{data?.email ? data?.email : '-'}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>{{data?.age ? data?.age : '-' }}</td>
+                                    <td>{{data?.createdAt?(data?.createdAt | date: 'dd/MM/yyyy'):'-'}}</td>
+                                    <td>
+                                        <div class="user__group-icon">
+                                            <img src="../../../../assets/img/icons/edit-1.svg" alt="edit" (click)="showModal2(data)" nz-tooltip nzTooltipPlacement="top" nzTooltipTitle="Edit">
+                                            <img src="../../../../assets/img/icons/trash-2.svg" alt="delete" (click)="deleteUserBtn(data?.id)" nz-tooltip nzTooltipPlacement="top" nzTooltipTitle="Delete">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </nz-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<nz-modal [(nzVisible)]="isVisible2" (nzOnCancel)="handleCancel()" [nzFooter]="UpdateSignal" nzMaskClosable="true" nzWidth="380px" [nzBodyStyle]="{ 'padding-right':'0px' , 'padding-left':'0px' }">
+    <ng-container *nzModalContent>
+        <div nz-row class="user__modal">
+            <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+                <h2 class="user__modaltitle">Edit</h2>
+            </div>
+        </div>
+        <div nz-row>
+            <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+                <form nz-form class="main-form" [formGroup]="editUserForm">
+                    <nz-form-control [nzErrorTip]="nameError">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label">Enter Name</label>
+                            <input nz-input name="name" type="text" id="email9" formControlName="name">
+
+                            <ng-template #nameError let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter Name
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+
+                    <nz-form-control [nzErrorTip]="emailError">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label">Email</label>
+                            <input nz-input name="name" type="text" id="email9" formControlName="email">
+
+                            <ng-template #emailError let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter Email
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('pattern')">
+                                    Enter valid email
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+                    
+                    <nz-form-control [nzErrorTip]="ageError">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label">Enter Age</label>
+                            <input nz-input name="name" type="text" id="email9" formControlName="age">
+
+                            <ng-template #ageError let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter Age
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+                    <nz-form-control [nzErrorTip]="paswordError">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label">Password</label>
+                            <input nz-input name="name" type="text" id="email9" formControlName="password">
+
+                            <ng-template #paswordError let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter password
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('pattern')">
+                                    Enter valid Password
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+
+                    <nz-form-control [nzErrorTip]="confirmPasswordError">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label"> Confirm Password</label>
+                            <input nz-input name="name" type="email" id="email9" formControlName="confirmPassword">
+
+                            <ng-template #confirmPasswordError let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter Confirm Password
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('mustMatch')">
+                                    Uh-oh! The Password Don't Match
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #UpdateSignal>
+        <div class="user__modal-footer mt-1">
+            <button nz-button class="user__submit" nzType="primary" [nzLoading]="editCondition" [disabled]="editUserForm.invalid || editCondition" (click)="userEditBtn()">Submit</button>
+            <button nz-button class="user__cancel" nzType="primary" (click)="handleCancel()">Cancel</button>
+        </div>
+    </ng-template>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" [nzFooter]="CreateUser" nzMaskClosable="true" nzWidth="380px" [nzBodyStyle]="{ 'padding-right':'0px' , 'padding-left':'0px' }">
+    <ng-container *nzModalContent>
+        <div nz-row class="user__usermodal">
+            <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+                <h2 class="user__modaltitle">Create User</h2>
+            </div>
+        </div>
+        <div nz-row>
+            <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+                <form nz-form class="main-form" [formGroup]="createUserForm">
+                    <nz-form-control [nzErrorTip]="nameErr">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label">Name</label>
+                            <input nz-input name="name" type="text" id="email9" formControlName="name">
+                            <ng-template #nameErr let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter Name
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+
+                    <nz-form-control [nzErrorTip]="ageErr">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label">Age</label>
+                            <input nz-input name="name" type="text" id="email9" formControlName="age">
+                            <ng-template #ageErr let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter Age
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+
+                    <nz-form-control [nzErrorTip]="emailError">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label">Email id</label>
+                            <input nz-input name="name" type="text" id="email9" formControlName="email">
+
+                            <ng-template #emailError let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter Emailid
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('pattern')">
+                                    Enter valid email
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+
+                    <nz-form-control [nzErrorTip]="paswordError">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label">Password</label>
+                            <input nz-input name="name" type="text" id="email9" formControlName="password">
+
+                            <ng-template #paswordError let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter password
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('pattern')">
+                                    Enter valid Password
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+
+                    <nz-form-control [nzErrorTip]="confirmPasswordError">
+                        <nz-form-item class="form-elements">
+                            <label class="form-label"> Confirm Password</label>
+                            <input nz-input name="name" type="email" id="email9" formControlName="confirmPassword">
+
+                            <ng-template #confirmPasswordError let-control>
+                                <ng-container *ngIf="control.hasError('required')">
+                                    Enter Confirm Password
+                                </ng-container>
+                                <ng-container *ngIf="control.hasError('mustMatch')">
+                                    Uh-oh! The Password Don't Match
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-item>
+                    </nz-form-control>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #CreateUser>
+        <div class="user__modal-footer mt-1">
+            <button nz-button class="user__submit" nzType="primary" [nzLoading]="createCondition" [disabled]="createUserForm.invalid || createCondition" (click)="createUserBtn()">Submit</button>
+            <button nz-button class="user__cancel" nzType="primary" (click)="handleCancel()">Cancel</button>
+        </div>
+    </ng-template>
+</nz-modal>
+
+
+<div class="loader" *ngIf="activityLoader">
+    <span class="spinner-load">
+        <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    </span>
+</div>

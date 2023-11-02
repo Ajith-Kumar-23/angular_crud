@@ -1,0 +1,125 @@
+@import "../../../assets/scss/variable.scss";
+.asidenav {
+    height: 100%;
+    width: 100%;
+    &__logo {
+        display: block;
+        padding-bottom: 15px;
+        padding-top: 10px;
+        background-color: var(--logo-bg);
+        h2 {
+            color: white;
+            text-align: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+    }
+    &__title {
+        color: var(--whitecolor);
+    }
+    &__menulist {
+        height: 100%;
+        overflow-x: hidden;
+        ul {
+            background-color: var(--sidebar-bg);
+            width: 270px;
+            padding: 14px;
+            padding-top: 5px;
+            padding-right: 0;
+            li {
+                color: var(--whitecolor);
+                font-size: 16px;
+                font-family: 'Manrope', sans-serif;
+                font-weight: 400;
+                line-height: 30px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                min-height: 50px;
+                margin: 0 auto;
+                margin-top: 17px;
+                padding-left: 14px !important;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                outline: 0;
+                span {
+                    color: var(--whitecolor);
+                    margin-left: 17px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+.inner-list {
+    padding-bottom: 0px !important;
+    padding-left: 26px !important;
+    li {
+        font-size: 14px !important;
+    }
+}
+
+::ng-deep .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: var(--primary-active);
+}
+
+::ng-deep .ant-menu-inline .ant-menu-submenu-title {
+    padding-left: 0px !important;
+}
+
+::ng-deep .ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+    left: 0;
+    border-left: 3px solid var(--whitecolor);
+    border-right: none;
+}
+
+.side-menu-layout {
+    position: fixed;
+    overflow-y: auto;
+    background-color: var(--sidebar-bg) !important;
+    z-index: 1000;
+    height: 100%;
+}
+
+#toggle-icon {
+    z-index: 1000;
+    border: none;
+    outline: none;
+    color: var(--sidebar-bg);
+    background-color: transparent;
+    margin-top: 08px;
+    position: fixed;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.responsive {
+    display: flex;
+    &__logo {
+        display: inline-flex;
+        margin-left: 10px;
+        margin-bottom: 08px;
+    }
+}
+
+.v-hideen {
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 1200px) {
+    .side-menu-layout {
+        height: 100%;
+        overflow-x: hidden;
+        overflow: auto;
+    }
+    .asidenav {
+        &__menulist {
+            ul {
+                width: 249px;
+            }
+        }
+    }
+}
